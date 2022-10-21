@@ -13,6 +13,7 @@ server
     .set('views', path.join(__dirname,'views'))
     .engine('mustache',mustache())
     .use(express.urlencoded({extended: true}))
+    .use(express.static('public'))
     .use(router)
     .use((req: Request, res: Response) => {
         res.status(404).send('404')
